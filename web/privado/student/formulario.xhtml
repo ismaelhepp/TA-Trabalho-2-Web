@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:form id="formEdicao">
+        <h:panelGroup rendered="#{controleAluno.editando}">
+            <div class="ui-fluid">
+                <p:messages id="messages"/>
+                <p:panelGrid columns="2" columnClasses="ui-grid-col-2, ui-grid-col-20"
+                    layout="grid" styleClass="ui-panelgrid-blank">
+                    <f:facet name="header">
+                        <p:outputLabel value="Edição de Alunos"/>
+                    </f:facet>
+                    
+
+                    
+                    <p:outputLabel value="Nome" for="txtNome"/>
+                    <p:inputText id="txtNome" value="#{controleAluno.objeto.name}"
+                                 size="50" maxlength="50" 
+                                 placeholder="Obrigatório"/>
+                    
+                    <p:outputLabel value="Gênero" for="txtGenero"/>
+                    <p:inputText id="txtGenero" value="#{controleAluno.objeto.gender}"
+                                 size="50" maxlength="50"
+                                 placeholder="Obrigatório"/>
+                    
+                    <p:outputLabel value="Nascimento" for="dataNasc"/>
+                    <p:calendar  id="dataNasc" value="#{controleAluno.objeto.date_of_birth}"
+                                 pattern="dd/MM/yyyy" navigator="true" mask="true">
+                        <f:converter converterId="converterCalendar"/>
+                    </p:calendar>
+                    
+                    <p:commandButton value="Salvar" icon="ui-icon-disk"
+                                     actionListener="#{controleAluno.salvar()}"
+                                     update="formEdicao formListagem"/>
+                    
+                </p:panelGrid>
+            </div>
+        </h:panelGroup>
+    </h:form>
+</html>
