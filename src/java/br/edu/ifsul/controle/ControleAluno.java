@@ -33,6 +33,10 @@ public class ControleAluno implements Serializable {
         return "/privado/student/listar?faces-redirect=true";
     }
     
+    public String listarPublico(){
+        return "/publico/student/listar?faces-redirect=true";
+    }
+    
     public void novo(){
         objeto = new Student();
         editando = true;

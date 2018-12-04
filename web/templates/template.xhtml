@@ -19,6 +19,12 @@
                                               ajax="false"
                                               action="#{controleAluno.listar()}"/>
                         </b:dropMenu>
+                        <b:dropMenu value="Listar"
+                                    rendered="#{controleLogin.usuarioAutenticado == null}">
+                            <b:navCommandLink value="Alunos"
+                                              ajax="false"
+                                              action="#{controleAluno.listarPublico()}"/>
+                        </b:dropMenu>
                         <b:dropMenu value="#{controleLogin.usuarioAutenticado != null ?
                                              controleLogin.usuarioAutenticado.name :
                                             'Efetuar Login' }">
